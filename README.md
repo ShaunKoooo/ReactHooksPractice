@@ -1,70 +1,40 @@
-# Getting Started with Create React App
+# React Hooks Practice
+## `React.momo` -> 優化主要關注在 component 的props
+   跟據 props 有無變更，判斷是否要 render 子 component
+## `React.useMomo` -> 
+    1. 大量運算、吃效能的 method 
+    2. 不太需要 render 的component
+## `React.useCallback` ->
+    1. 與 useMemo 大同小異 -> useMemo(() => fn, deps) === useCallback(fn, deps)
+### 使用情境：
+    1. 若子組建被memo包，則注意傳遞進子組建的值是否為 call by reference ，是的話則加 useCallback
+**Note: useMomo/useCallback 差別**
+    useCallback 回傳 function 且可以傳遞參數
+    useMomo 回傳值
+## `React.Effect` -> 
+    1. 可以代表 component 的生與死（只執行一次）
+    useEffect(() => {
+        // born
+        return () => {
+            // dead
+        }
+    }, []);
+    2. 關注值的異動
+    useEffect(() => {
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+    }, [??]);
+**Note: dependency 是 [] 只會執行一次，不關注任何值**
+**Note: dependency 是 [??] 值有變動才執行**
+**Note: dependency 沒帶陣列 每一次 render 都會執行**
 
-## Available Scripts
+## `React.useRef` ->
+    1. 可以記錄 mounted 狀態
+    2.（當成class component 的 this 紀錄使用）
+    3. 取得 dom 元素  
+<!-- # Problems and solutions
 
-In the project directory, you can run:
+## `Problem 1` 
+    git -> Met with authentication problems when pushing code
+## `Solution 1`
+    https://hoohoo.top/blog/github-ssh-key/ -->
 
-### `npm start`
-
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in your browser.
-
-The page will reload when you make changes.\
-You may also see any lint errors in the console.
-
-### `npm test`
-
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
-
-### `npm run build`
-
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
-
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
-
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
-
-### `npm run eject`
-
-**Note: this is a one-way operation. Once you `eject`, you can't go back!**
-
-If you aren't satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
-
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you're on your own.
-
-You don't have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn't feel obligated to use this feature. However we understand that this tool wouldn't be useful if you couldn't customize it when you are ready for it.
-
-## Learn More
-
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
-
-To learn React, check out the [React documentation](https://reactjs.org/).
-
-### Code Splitting
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/code-splitting](https://facebook.github.io/create-react-app/docs/code-splitting)
-
-### Analyzing the Bundle Size
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size](https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size)
-
-### Making a Progressive Web App
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app](https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app)
-
-### Advanced Configuration
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/advanced-configuration](https://facebook.github.io/create-react-app/docs/advanced-configuration)
-
-### Deployment
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/deployment](https://facebook.github.io/create-react-app/docs/deployment)
-
-### `npm run build` fails to minify
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
