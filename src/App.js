@@ -9,6 +9,7 @@ import UpdateDocTitle from './useEffect/UpdateDocTitle';
 import LoadingPage from './customHooks/loading/LoadingPage';
 import CountDown from './customHooks/countdown/CountDown';
 import BigListParent from './usecallback/bigList/BigListParent';
+import Counter from './customHooks/interval/Counter';
 
 
 
@@ -19,8 +20,9 @@ const App = () => {
     // <UseCallback />
     // <UpdateDocTitle />
     // <LoadingPage />
-    <CountDown />
+    // <CountDown />
     // <BigListParent />
+    <Counter />
   );
 }
 
