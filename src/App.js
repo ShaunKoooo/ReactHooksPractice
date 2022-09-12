@@ -10,6 +10,8 @@ import LoadingPage from './customHooks/loading/LoadingPage';
 import CountDown from './customHooks/countdown/CountDown';
 import BigListParent from './usecallback/bigList/BigListParent';
 import Counter from './customHooks/interval/Counter';
+import ContextApp from './context/ContextApp';
+import CounterWithReducer from './useReducer/counter/Counter';
 
 
 
@@ -22,7 +24,9 @@ const App = () => {
     // <LoadingPage />
     // <CountDown />
     // <BigListParent />
-    <Counter />
+    // <Counter />
+    // <ContextApp />
+    <CounterWithReducer />
   );
 }
 

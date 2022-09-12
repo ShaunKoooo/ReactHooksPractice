@@ -52,14 +52,26 @@
     2.（當成class component 的 this 紀錄使用）
     3. 取得 dom 元素  
 
-## `React.useContext` -> 用太多會有效能低落的問題，小範圍可以使用
+## `Context` -> 被 Provider 包住的所有子元件只要包在 Consumer 中皆可取得 value 值。
+    React.createContext() 建立 Context 物件，內含 (Prodiver: 傳遞 value & Consumer: 接收 value) 兩個子元件。
+
+
+## `React.useContext` -> Context 物件中 Consumer 的語法糖 *用太多會有效能低落的問題，小範圍可以使用。
 **只要用到 Context 的 component，當context 值有更改，一律rerender，且無法阻擋(memo/useMemo都無效)。**
+
+## `React.useReducer` -> 
+    優點：
+        比 redux 簡單
+    缺點：
+        1. 無法存取 global store
+        2. 無法像 redux 使用 thunk 或 saga 處理 side effect
+
 
 **key 關鍵字**
 
 # css 全域污染 solutions : CSS module
 檔名取：names.module.scss
-import style from './name'
+import style from './names'
 
 
 <!-- # Problems and solutions
@@ -108,10 +120,14 @@ import style from './name'
 
 
 # 參考資料
-## [useCallback](https://dmitripavlutin.com/dont-overuse-react-usecallback/)  
-## [use the Chrome DevTools Performance panel to analyze runtime performance](https://developer.chrome.com/docs/devtools/evaluate-performance/)  
-## [git github-ssh-key](https://hoohoo.top/blog/github-ssh-key/ )  
-## [setTimeout / setInterval](https://kuro.tw/posts/2019/02/23/談談-JavaScript-的-setTimeout-與-setInterval/)  
+## 1. [useCallback](https://dmitripavlutin.com/dont-overuse-react-usecallback/)  
+## 2. [use the Chrome DevTools Performance panel to analyze runtime performance](https://developer.chrome.com/docs/devtools/evaluate-performance/)  
+## 3. [git github-ssh-key](https://hoohoo.top/blog/github-ssh-key/ )  
+## 4. [setTimeout / setInterval](https://kuro.tw/posts/2019/02/23/談談-JavaScript-的-setTimeout-與-setInterval/)  
+## 5. [Context / useContext](https://medium.com/hannah-lin/react-hook-%E7%AD%86%E8%A8%98-usecontext-4bc289976847)
+## 6. [useContext 用太多會有效能問題，且無可阻擋](https://leewarrick.com/blog/the-problem-with-context/)
+## 7. [useReducer 基礎](https://ithelp.ithome.com.tw/articles/10268258)
+
 
 
 
